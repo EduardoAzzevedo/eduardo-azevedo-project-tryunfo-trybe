@@ -16,14 +16,14 @@ class Card extends React.Component {
 
     return (
       <div>
-        <h3 data-testid="name-card">{ cardName }</h3>
+        <h2 data-testid="name-card">{ cardName }</h2>
         <img src={ cardImage } alt={ cardName } data-testid="image-card" />
-        <p data-testid="name-card">{ cardDescription }</p>
-        <p data-testid="name-card">{ cardAttr1 }</p>
-        <p data-testid="name-card">{ cardAttr2 }</p>
-        <p data-testid="name-card">{ cardAttr3 }</p>
-        <p data-testid="name-card">{ cardRare }</p>
-        { cardTrunfo && <p dara-testid="trunfo-card"> Super Trunfo </p> }
+        <p data-testid="description-card">{ cardDescription }</p>
+        <p data-testid="attr1-card">{ cardAttr1 }</p>
+        <p data-testid="attr2-card">{ cardAttr2 }</p>
+        <p data-testid="attr3-card">{ cardAttr3 }</p>
+        <p data-testid="rare-card">{ cardRare }</p>
+        { cardTrunfo === true ? <p data-testid="trunfo-card">Super Trunfo</p> : <p /> }
       </div>
       // https://pt-br.reactjs.org/docs/conditional-rendering.html
       // uso de {} e && para a condicional para exibir o texto somente quando a prop de cardTrunfo for true

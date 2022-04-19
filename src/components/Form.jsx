@@ -1,5 +1,4 @@
 import React from 'react';
-import './Form.css';
 import PropTypes from 'prop-types';
 
 class Form extends React.Component {
@@ -13,7 +12,6 @@ class Form extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      // eslint-disable-next-line no-unused-vars
       hasTrunfo,
       isSaveButtonDisabled,
       onInputChange,
@@ -25,6 +23,7 @@ class Form extends React.Component {
         <label htmlFor="name">
           Nome:
           <input
+            type="text"
             name="cardName"
             data-testid="name-input"
             value={ cardName }
@@ -38,8 +37,6 @@ class Form extends React.Component {
             name="cardDescription"
             data-testid="description-input"
             value={ cardDescription }
-            cols="30"
-            rows="10"
             onChange={ onInputChange }
           />
         </label>
@@ -75,6 +72,7 @@ class Form extends React.Component {
         </label>
         <label htmlFor="cardImage">
           <input
+            type="text"
             name="cardImage"
             value={ cardImage }
             data-testid="image-input"
@@ -94,13 +92,17 @@ class Form extends React.Component {
         </select>
         <label htmlFor="checkbox">
           Super Trybe Trunfo
-          <input
-            value={ cardTrunfo }
-            type="checkbox"
-            data-testid="trunfo-input"
-            name="cardTrunfo"
-            onChange={ onInputChange }
-          />
+          { hasTrunfo
+            ? <p>Você já tem um Super Trunfo em seu baralho</p>
+            : (
+              <input
+                type="checkbox"
+                data-testid="trunfo-input"
+                name="cardTrunfo"
+                checked={ cardTrunfo }
+                onChange={ onInputChange }
+              />
+            )}
         </label>
         <button
           data-testid="save-button"
